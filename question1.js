@@ -1,15 +1,19 @@
 function cleanTheRoom (array) {
-	array.sort();
-	var length = array.length - 1;
+	array.sort(function(a,b) { return a - b; });
+	var length = array.length;
 	var cleanedArray = [];
-
+	var counter = -1;
 
 	for (var i = 0; i < length; i++){
-		if (array[i] === array[i+1]) {
 
+
+		if (array[i-1] !== array[i]) {
+
+			cleanedArray.push([array[i]]);
+			counter++;
 		}
 		else {
-
+			cleanedArray[counter].push(array[i]);
 		}
 
 	}
