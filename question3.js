@@ -20,7 +20,7 @@ function convertColor(color) {
 		var b = parseInt(hexNumber.substring(4,6), 16);
 		var a = hexNumber.length === 8 ? parseInt(hexNumber.substring(6,8), 16)/100 : '';
 
-		return "(" + r + "," + g + "," + b + ',' + a ")";
+		return "(" + r + "," + g + "," + b + ',' + a + ")";
 	}
 
 	function convertRgbToHex(color) {
