@@ -6,7 +6,7 @@ function sumToTarget (arrayOfNumbers, targetNumber){
 			if ((arrayOfNumbers[i] + arrayOfNumbers[j] === targetNumber) &
 			 arrayOfNumbers[i] !== arrayOfNumbers[j]){
 
-				return [arrayOfNumbers[i], arrayOfNumbers[j]]
+				return [arrayOfNumbers[i], arrayOfNumbers[j]];
 			}
 		}
 	}
