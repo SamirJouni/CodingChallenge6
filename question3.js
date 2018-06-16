@@ -15,12 +15,12 @@ function convertColor(color) {
 
 	function convertHexToRgb(color) {
 		var hexNumber = color.slice(1);
-		var decimalNumber = parseInt(hexNumber, 16);
-		var r = (decimalNumber >> 16) & 255;
-		var g = (decimalNumber >> 8) & 255;
-		var b = decimalNumber & 255;
+		var r = parseInt(hexNumber.substring(0,2), 16);
+		var g = parseInt(hexNumber.substring(2,4), 16);
+		var b = parseInt(hexNumber.substring(4,6), 16);
+		var a = hexNumber.length === 8 ? parseInt(hexNumber.substring(6,8), 16)/100 : '';
 
-		return "(" + r + "," + g + "," + b + ")";
+		return "(" + r + "," + g + "," + b + ',' + a ")";
 	}
 
 	function convertRgbToHex(color) {
@@ -28,7 +28,7 @@ function convertColor(color) {
 		var r = color[0];
 		var g = color[1];
 		var b = color[2];
-		var a = color[3] ? color[3] : '';
+		var a = color.length === 4 ? color[3]*100 : '';
 		return "#" + numberToHex(r) + numberToHex(g) + numberToHex(b) + numberToHex(a);
 	}
 
