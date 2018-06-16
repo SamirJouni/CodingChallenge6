@@ -15,12 +15,12 @@ function convertColor(color) {
 
 	function convertHexToRgb(color) {
 		var hexNumber = color.slice(1);
-		var r = parseInt(hexNumber.substring(0,2), 16);
-		var g = parseInt(hexNumber.substring(2,4), 16);
-		var b = parseInt(hexNumber.substring(4,6), 16);
-		var a = hexNumber.length === 8 ? parseInt(hexNumber.substring(6,8), 16)/100 : '';
+		var r = parseInt(hexNumber.substring(0, 2), 16);
+		var g = parseInt(hexNumber.substring(2, 4), 16);
+		var b = parseInt(hexNumber.substring(4, 6), 16);
+		var a = hexNumber.length === 8 ? Math.round(parseInt(hexNumber.substring(6, 8), 16) / 255) : '';
 
-		return "(" + r + "," + g + "," + b + ',' + a + ")";
+		return "(" + r + "," + g + "," + b + (a !== '' ? ',' : '') + a + ")";
 	}
 
 	function convertRgbToHex(color) {
@@ -28,12 +28,12 @@ function convertColor(color) {
 		var r = color[0];
 		var g = color[1];
 		var b = color[2];
-		var a = color.length === 4 ? color[3]*100 : '';
-		return "#" + numberToHex(r) + numberToHex(g) + numberToHex(b) + numberToHex(a);
+		var a = color.length === 4 ? Math.round(color[3] * 255) : '';
+		return "#" + numberToHex(r) + numberToHex(g) + numberToHex(b) + (color.length === 4 ? numberToHex(a) : '');
 	}
 
 	function numberToHex(number) {
-		var numberInHex = number.toString(16);
+		var numberInHex = Number(number).toString(16);
 		return numberInHex.length == 1 ? "0" + numberInHex : numberInHex;
 	}
 
