@@ -8,20 +8,20 @@ function cleanTheRoom (array) {
 
 		if (array[i-1] !== array[i]) {
 			if (typeof array[i] === 'number'){
-					cleanedArray[0].push([array[i]]);
+					cleanedArray[0].push(array[i]);
 			}
 			else {
-				cleanedArray[1].push([array[i]]);
+				cleanedArray[1].push(array[i]);
 
 			}
 			counter++;
 		}
 		else {
 			if (typeof array[i] === 'number'){
-				cleanedArray[0][counter].push(array[i]);
+				cleanedArray[0][counter] = Array.from(cleanedArray[0][counter]).concat(array[i]);
 			}
 			else{
-				cleanedArray[1][counter].push(array[i]);
+				cleanedArray[0][counter] = Array.from(cleanedArray[1][counter]).concat(array[i]);
 			}
 		}
 
