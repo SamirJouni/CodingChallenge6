@@ -29,5 +29,8 @@ function cleanTheRoom (array) {
 	if (cleanedArray[1].length === 0){
 		cleanedArray.pop([1]);
 	}
+	if (cleanedArray[0].length === 0) {
+		cleanedArray.pop([0]);
+	}
 	return cleanedArray;
 }
