@@ -6,7 +6,6 @@ function cleanTheRoom (array) {
 
 	for (var i = 0; i < length; i++){
 
-
 		if (array[i-1] !== array[i]) {
 			if (typeof array[i] === 'number'){
 					cleanedArray[0].push([array[i]]);
@@ -26,6 +25,9 @@ function cleanTheRoom (array) {
 			}
 		}
 
+	}
+	if (cleanedArray[1].length === 0){
+		cleanedArray.pop([1]);
 	}
 	return cleanedArray;
 }
